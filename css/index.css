@@ -2795,3 +2795,22 @@ body {
   background-color: #07d000; }
   .header_03 .headerWrap .detail .detailWrap .txtInner a.link:hover {
     background-color: rgba(7, 208, 0, 0.9); }
+
+.gallery_01 ul.slider li {
+  height: 240px; }
+  @media screen and (min-width: 375px) {
+    .gallery_01 ul.slider li {
+      height: 281.25px; } }
+  @media screen and (min-width: 414px) {
+    .gallery_01 ul.slider li {
+      height: 310.5px; } }
+  @media screen and (min-width: 768px) {
+    .gallery_01 ul.slider li {
+      height: 576px; } }
+  .gallery_01 ul.slider li .img {
+    height: 100%; }
+    @media screen and (min-width: 768px) {
+      .gallery_01 ul.slider li .img {
+        height: 100%; } }
+  .gallery_01 ul.slider li .txt {
+    display: none; }

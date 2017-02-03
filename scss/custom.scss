@@ -242,6 +242,30 @@ body {
       }
     }
   }
+  ul.slider {
+    li {
+      height: 240px; //240(img)+66(txt)
+      @include screen(mMedium) {
+        height: 281.25px; //281.25(img)+66(txt)
+      }
+      @include screen(mLarge) {
+        height: 310.5px; //310.5(img)+66(txt)
+      }
+      @include screen(tb) {
+        height: 576px; //576(img)+48(txt)
+      }
+      .img {
+        height: 100%; //240(img)+66(txt)
+        @include screen(tb) {
+          height: 100%; //576(img)+48(txt)
+        }
+      }
+      .txt {
+        // 隱藏文字描述
+        display: none;
+      }
+    }
+  }
 }
 
 .video_01 {
