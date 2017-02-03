@@ -1,0 +1,20 @@
+//l_05_tag template
+script(id="template-l05-start", type="text/x-handlebars-template")
+	h2.title SELECTED ARTICLES
+	.detail
+	.subTitleWrap
+		p.subTitle 
+	<ul class="article">
+script(id="template-l05", type="text/x-handlebars-template")
+	li.wow.custom_fadeinup
+		a.img.imgLoading(href='https://www.juksy.com/archives/{{id}}', target='_blank', data-imgload='https://static.juksy.com/files/cover/{{id}}/{{body.square}}?m=resize&i=600x600&e=jpg&q=75')
+			.linkWrap
+				.linkBorder
+					span.ch 馬上閱讀
+					span.ch.arrow →
+		.txtWrap
+			a.txt(data-dotdotdot='true', href='https://www.juksy.com/archives/{{id}}', target='_blank')
+				h3 {{body.title}}
+script(id="template-l05-end", type="text/x-handlebars-template")
+	</ul>
+//l_05_tag template end

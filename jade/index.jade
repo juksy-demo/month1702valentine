@@ -1,0 +1,46 @@
+doctype html
+html(lang='zh-TW')
+  head
+    include ./base/head.jade
+  body
+    #fb-root
+    h1.hide 夏日穿搭特輯 - JUKSY 流行生活網
+    include ./header/h_03.jade
+    include ./layout/l_05.jade
+    include ./layout/l_06.jade
+    include ./layout/l_03_infinite.jade
+    include ./gallery/g_01.jade
+    include ./video/v_01.jade
+    include ./footer/f_01.jade
+    include ./btnfixed/b_01.jade
+    include ./gallery/photoswipe_ui.jade
+
+    // JS start
+    include ./layout/l_03_infinite_script.jade
+    include ./layout/l_06_script.jade
+
+    // JS cdn
+    script(src="//embedsocial.com/js/iframe.js")
+
+    // JS DEV FILE
+    script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js")
+    script(src="//cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/jQuery.dotdotdot/1.7.4/jquery.dotdotdot.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js")
+    script(src="js/index.js")
+
+    // JS MIN FILE
+    //- script(src="js/app.assets.js")
+    //- script(src="js/app.min.js")
+
+    // JS third party
+    script(type='text/javascript')
+      include ./js/foot.js
+    // JS third party end
+
+    // JS end

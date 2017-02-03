@@ -1,0 +1,192 @@
+.layout_02 {
+	position: relative;
+    background-color: $white;
+    .layoutWrap {
+        padding: 0 $m_gap;
+        @include screen(tb) {
+            padding: 0 $tb_gap;
+        }
+        @include screen(pcSmall) {
+            max-width: $pc_max_width;
+            margin: 0 auto;
+        }
+        .title {
+            padding: 50px 0 0 0;
+            text-align: center;
+            font-size: 28px;
+            line-height: 1.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            &:after {
+                content: '';
+                display: block;
+                width: 100px;
+                height: 5px;
+                margin: 5px auto 10px auto;
+                background-color: $black;
+            }
+        }
+        .detail {
+            padding: 0;
+            text-align: center;
+            font-size: 30px;
+            line-height: 1.5em;
+            font-weight: bold;
+        }
+        .subTitleWrap {
+            @include screen(pcSmall) {
+                width: 970px;
+                margin: 0 auto 30px auto;
+            }
+            .subTitle {
+                margin: 20px auto;
+                color: $black_50;
+                @include screen(tb) {
+                    margin: 20px auto;
+                }
+                @include screen(pcSmall) {
+                    width: 65%;
+                    margin: 20px auto;
+                    text-align: center;
+                }
+            }
+        }
+        ul.articleWrap {
+            overflow: hidden;
+            @include screen(pcSmall) {
+                width: $pc_max_width;
+            }
+            li {
+                @include list_style_none;
+                width: 47.5%;
+                float: left;
+                margin-right: 5%;
+                margin-bottom: 20px;
+                padding-top: 10px;
+                border-top: 1px solid #f2f2f2;
+                &:nth-child(odd) {
+                    margin-right: 0;
+                    @include screen(pcSmall) {
+                        margin-right: 25px;
+                    }
+                }
+                @include screen(pcSmall) {
+                    width: 223.75px;
+                    margin-top: 58px;
+                    margin-right: 25px;
+                    margin-bottom: 25px;
+                    &:nth-child(4n+3) {
+                        margin-right: 0;
+                    }
+                }
+                .article {
+                    background-color: #f2f2f2;
+                    a.img {
+                        @include a_img;
+                        @include square_linkWrap;
+                        .linkWrap {
+                            height: calc(140px*0.8);
+                            @include screen(mLarge) {
+                                height: calc(177px*0.8);
+                            }
+                            @include screen(tb) {
+                                height: calc(326.8px*0.8);
+                            }
+                            @include screen(pcSmall) {
+                                height: calc(223.75px*0.8);
+                            }
+                        }
+                        &:after {
+                            content: "";
+                            display: block;
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 10px 10px 0 10px;
+                            border-color: #f2f2f2 transparent transparent transparent;
+                            position: absolute;
+                            right: 15px;
+                            top: 0;
+                        }
+                    }
+                    a.txt {
+                        display: block;
+                        height: $line-height*3;
+                        overflow: hidden;
+                        padding: 15px;
+                        @include screen(tb) {
+                            padding: $tb_gap;
+                        }
+                        @include screen(pcSmall) {
+                            padding: 18px;
+                        }
+                        letter-spacing: normal;
+                        h3 {
+                            font-weight: normal;
+                            @include a_txt;
+                        }
+                    }
+                }
+                &.big {
+                    width: 100%;
+                    margin-right: 0;
+                    @include screen(pcSmall) {
+                        width: 472.5px;
+                        margin-top: 0;
+                        margin-right: 25px;
+                    }
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 0 10px 10px 10px;
+                        border-color: transparent transparent #f2f2f2 transparent;
+                        position: absolute;
+                        right: 15px;
+                        bottom: 110px;
+                        @include screen(tb) {
+                            bottom: 159px;
+                        }
+                        @include screen(pcSmall) {
+                            bottom: 165px;
+                        }
+                    }
+                    .article {
+                        @include screen(pcSmall) {
+                            min-height: 414px;
+                        }
+                        a.img {
+                            @include a_img;
+                            @include fbsize_linkWrap;
+                            .linkWrap {
+                                height: calc(280px*0.77/1.9);
+                                @include screen(mLarge) {
+                                    height: calc(374px*0.77/1.9);
+                                }
+                                @include screen(tb) {
+                                    height: calc(688px*0.77/1.9);
+                                }
+                                @include screen(pcSmall) {
+                                    height: calc(472.5px*0.77/1.9);
+                                }
+                            }
+                            &:after {
+                                display: none;
+                            }
+                        }
+                        a.txt {
+                            font-size: 20px;
+                            line-height: 40px;
+                            height: 80px;
+                            @include screen(tb) {
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+//l_03_infinite template
+script(id="entry-template-start", type="text/x-handlebars-template")
+	<ul class="article">
+script(id="entry-template0", type="text/x-handlebars-template")
+	li.wow.custom_fadeinup
+		a.img.imgLoading(href="https://www.juksy.com/archives/{{id}}", data-imgload="https://static.juksy.com/files/cover/{{id}}/{{body.rectangle}}?m=resize&i=760x400&e=jpg&q=90", target="_blank")
+			.linkWrap
+				.linkBorder
+					span.ch 馬上閱讀
+					span.ch.arrow →
+		a.category {{category.name}}
+		.txtWrap
+			a.txt(data-dotdotdot='true', href='https://www.juksy.com/archives/{{id}}', target='_blank')
+				h3 {{body.title}}
+script(id="entry-template1", type="text/x-handlebars-template")
+	li.wow.custom_fadeinup
+		a.img.imgLoading(href='https://www.juksy.com/archives/{{id}}', data-imgload='https://static.juksy.com/files/cover/{{id}}/{{body.square}}?m=resize&i=600x600&e=jpg&q=75', target='_blank')
+			.linkWrap
+				.linkBorder
+					span.ch 馬上閱讀
+					span.ch.arrow →
+		.txtWrap
+			a.category {{category.name}}
+			a.txt(data-dotdotdot='true', href='https://www.juksy.com/archives/{{id}}', target='_blank')
+				h3 {{body.title}}
+			a.more(href='https://www.juksy.com/archives/{{id}}', target='_blank')
+				span 瞭解更多 →
+script(id="entry-template-end", type="text/x-handlebars-template")
+	</ul><a class="moreBtn"><span>載入更多文章 →</span></a>
+//l_03_infinite template end

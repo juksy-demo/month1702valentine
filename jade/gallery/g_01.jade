@@ -1,0 +1,37 @@
+// gallery01
+section.gallery_01(data-menu='true')
+	.layoutWrap
+		h2.title PHOTOGRAPHY
+		.detail 企劃拍攝
+		.subTitleWrap
+			p.subTitle 穿搭，是體現自我風格；單品，則能提升整體質感。球鞋、墨鏡、研讀小編為妳準備的妳準備今必修秘技，成為路人眼中的焦點吧！
+	ul#gallery_01_slider.slider
+		//Main Slide
+		- for (var i = 0; i < 4; i++) {
+			li(data-thumb='img/gallery/g_01/thumb-01.jpg', data-src='img/gallery/g_01/01.png')
+				.img
+					img(src='img/gallery/g_01/01.png', data-width='1200', data-height='900')
+				.txt
+					span= (i*5+1)+'. 穿搭，是體現自我風格；單X品，則能提升質感。成為路人眼中的焦點吧！'
+			li(data-thumb='img/gallery/g_01/thumb-02.jpg', data-src='img/gallery/g_01/02.png')
+				.img
+					img(src='img/gallery/g_01/02.png', data-width='1200', data-height='900')
+				.txt
+					span= (i*5+2)+'. 穿搭，是體現自我風格；單X品，則能提升質感。成為路人眼中的焦點吧！'
+			li(data-thumb='img/gallery/g_01/thumb-03.jpg', data-src='img/gallery/g_01/03.png')
+				.img
+					img(src='img/gallery/g_01/03.png', data-width='1200', data-height='794')
+				.txt
+					span= (i*5+3)+'. 穿搭，是體現自我風格；單X品，則能提升質感。成為路人眼中的焦點吧！'
+			li(data-thumb='img/gallery/g_01/thumb-04.jpg', data-src='img/gallery/g_01/04.png')
+				.img
+					img(src='img/gallery/g_01/04.jpg', data-width='854', data-height='853')
+				.txt
+					span= (i*5+4)+'. 穿搭，是體現自我風格；單X品，則能提升質感。成為路人眼中的焦點吧！'
+			li(data-thumb='img/gallery/g_01/thumb-05.jpg', data-src='img/gallery/g_01/05.png')
+				.img
+					img(src='img/gallery/g_01/05.png', data-width='900', data-height='1350')
+				.txt
+					span= (i*5+5)+'. 穿搭，是體現自我風格；單X品，則能提升質感。成為路人眼中的焦點吧！'
+		- }
+// gallery01 end

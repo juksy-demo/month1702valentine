@@ -1,0 +1,277 @@
+.nav_01 {
+    .navWrapBg {
+        position: fixed;
+        overflow: hidden;
+        z-index: 2;
+        @include transition;
+    }
+    .navWrap {
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        color: $white;
+        font-weight: bold;
+        padding: $m_gap;
+        @include transition;
+        @include screen(tb) {
+            padding: $tb_gap;
+        }
+        @include screen(pcSmall) {
+            top: 50px;
+            padding: 0;
+            width: 1000px;
+            height: 80px;
+            margin: 0 auto;
+            background-color: $pink_90;
+        }
+        @media screen and (width: $pc_landscape_min_w) {
+            top: 0; // fixed for 1024x768px window
+        }
+        .logoWrap {
+            height: 80px;
+            background-color: $pink_90;
+            overflow: hidden;
+            @include screen(pcSmall) {
+                background-color: transparent;
+                display: inline-block;
+            }
+            .logo {
+                float: left;
+                width: 121px;
+                height: 26px;
+                @include a_img;
+                margin-top: 27px;
+                margin-left: 20px;
+                svg {
+                    .st0 {
+                        fill: $white;
+                    }
+                }
+                @include screen(pcSmall) {
+                    width: 157.3px;
+                    height: 33.8px;
+                    margin-top: 23px;
+                    margin-left: 40px;
+                }
+            }
+            .mIcon {
+                float: right;
+                @include screen(pcSmall) {
+                    display: none;
+                }
+                >div {
+                    width: 80px;
+                    height: 80px;
+                    @include transition;
+                    &.open {
+                        svg {
+                            fill: none;
+                            stroke: $white;
+                            stroke-miterlimit: 10;
+                        }
+                    }
+                    &.close {
+                        svg {
+                            fill: none;
+                            stroke: $white;
+                            stroke-miterlimit: 10;
+                        }
+                    }
+                }
+            }
+        }
+        .menuWrap {
+            display: none;
+            height: 80%;
+            overflow-y: scroll;
+            @include screen(pcSmall) {
+                display: block;
+                float: right;
+                width: 660px;
+                overflow-y: hidden;
+            }
+            ul.menu {
+                padding: 30px 0 10px 0;
+                border-bottom: 2px solid $black;
+                @include transition;
+                @include screen(pcSmall) {
+                    padding: 0;
+                    border: 0;
+                    float: left;
+                }
+                li {
+                    font-size: 18px;
+                    line-height: 3em;
+                    text-align: right;
+                    @include list_style_none;
+                    cursor: pointer;
+                    @include screen(tb) {
+                        font-size: 24px;
+                    }
+                    @include screen(pcSmall) {
+                        font-size: 18px;
+                        float: left;
+                        line-height: 80px;
+                        margin: 0 15px;
+                        ul {
+                            position: absolute;
+                            top: 65px;
+                            right: 200px;
+                            z-index: 1;
+                            padding: 0 0;
+                            background-color: $grey;
+                            display: none;
+                            li {
+                                float: none;
+                                line-height: 3em;
+                                padding: 0 25px;
+                                margin: 0;
+                                @include transition;
+                            }
+                        }
+                        &:hover ul {
+                            display: block;
+                            li {
+                                background-color: $grey;
+                                &:hover {
+                                    background-color: $black_30;
+                                }
+                            }
+                        }
+                    }
+                    .more {
+                        display: none;
+                        &:after {
+                            content: ">";
+                            display: inline-block;
+                            font-weight: normal;
+                            @include transform(scaleX(1.5) rotate(90deg));
+                            @include transform-origin(50% 50%);
+                        }
+                        @include screen(pcSmall) {
+                            display: block;
+                        }
+                    }
+                    a {
+                        display: block;
+                    }
+                }
+            }
+            ul.share {
+                overflow: hidden;
+                margin-top: 20px;
+                @include screen(pcSmall) {
+                    float: right;
+                    margin-top: 0;
+                    margin-right: 40px;
+                }
+                li {
+                    @include list_style_none;
+                    width: 60px;
+                    height: 60px;
+                    float: right;
+                    border: 1px solid $white;
+                    margin-left: 10px;
+                    cursor: pointer;
+                    @include screen(pcSmall) {
+                        width: 25px;
+                        height: 25px;
+                        background-size: 50px;
+                        margin-top: 26px;
+                    }
+                    &.title {
+                        margin: 0;
+                        float: left;
+                        border: 0;
+                        width: 45%;
+                        height: auto;
+                        line-height: 60px;
+                        text-align: right;
+                        background-image: none;
+                        @include screen(tb) {
+                            width: 70%;
+                        }
+                        @include screen(pcSmall) {
+                            width: auto;
+                            line-height: 80px;
+                        }
+                        &:after {
+                            content: "→";
+                            display: inline-block;
+                            @include screen(pcSmall) {
+                                display: none;
+                            }
+                        }
+                        &:before {
+                            content: "|";
+                            display: none;
+                            margin-right: 10px;
+                            @include screen(pcSmall) {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    &.fb {
+                        svg {
+                            .st0 {
+                                fill: $white;
+                            }
+                        }
+                    }
+                    &.line {
+                        a.btn {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            svg {
+                                .st0 {
+                                    fill: $white;
+                                }
+                            }
+                        }
+                        @include screen(pcSmall) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav_01.menuOpen {
+    .navWrapBg {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: $black_80;
+    }
+    .navWrap {
+        height: 100%;
+        .logoWrap {
+            .logo {}
+            .mIcon {
+                >div {
+                    &.open {
+                        display: none;
+                    }
+                    &.close {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .menuWrap {
+            display: block;
+        }
+    }
+}
+
+.nav_01.scrollout {
+    .navWrap {
+        @include transform(translateY(-200px));
+        @include transform-origin(0% 0%);
+    }
+}

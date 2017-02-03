@@ -1,0 +1,57 @@
+.gallery_02 {
+    background-color: $white;
+    .layoutWrap {
+        .title {
+            padding: 50px $m_gap 0 $m_gap;
+            text-align: center;
+            font-size: 28px;
+            line-height: 1.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            &:after {
+                content: '';
+                display: block;
+                width: 100px;
+                height: 5px;
+                margin: 5px auto 10px auto;
+                background-color: $black;
+            }
+        }
+        .detail {
+            padding: 0 $m_gap;
+            text-align: center;
+            font-size: 30px;
+            line-height: 1.5em;
+            font-weight: bold;
+        }
+        .subTitleWrap {
+            @include screen(pcSmall){
+                width: 970px;
+                margin: 0 auto;
+            }
+            .subTitle {
+                margin: 20px $m_gap 0 $m_gap;
+                color: $black_50;
+                @include screen(tb) {
+                    margin: 20px $tb_gap 0 $tb_gap;
+                }
+                @include screen(pcSmall){
+                    width: 65%;
+                    margin: 20px auto 0 auto;
+                    text-align: center;
+                }
+            }
+        }
+        .photo {
+            max-width: $pc_max_width;
+            margin: 0 auto;
+            padding: 20px 0;
+            @include screen(tb) {
+                padding: 20px 20px;
+            }
+            @include screen(pcSmall) {
+                padding: 20px 0 40px 0;
+            }
+        }
+    }
+}

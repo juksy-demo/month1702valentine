@@ -1,0 +1,255 @@
+.header_01 {
+    display: block;
+    .headerWrap {
+        position: relative;
+        height: calc(568*0.9px + 360px - 31px); // visual + detail - triangle(30)
+        @include screen(mMedium) {
+            height: calc(667*0.9px + 340px - 31px);
+        }
+        @include screen(mLarge) {
+            height: calc(736*0.9px + 306px - 31px);
+        }
+        @include screen(tb) {
+            height: calc(1024*0.9px + 340px - 31px);
+        }
+        @include screen(pcSmall) {
+            height: calc(768*0.9px + 180px - 31px);
+        }
+        @include screen(pcLarge) {
+            height: calc(900*0.9px + 180px - 31px);
+        }
+        .visualBg {
+            position: relative;
+            width: 100%;
+            min-height: 511px;
+            background-image: $url_header_01_visual_m;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 568*0.9px; // not use 90vh because safari has navigation bar
+            @include screen(mMedium) {
+                height: 667*0.9px;
+            }
+            @include screen(mLarge) {
+                height: 736*0.9px;
+            }
+            @include screen(tb) {
+                height: 1024*0.9px;
+                background-image: $url_header_01_visual_tb;
+            }
+            @include screen(pcSmall) {
+                height: 768*0.9px;
+                background-image: $url_header_01_visual_pc;
+            }
+            @include screen(pcLarge) {
+                height: 900*0.9px;
+                background-attachment: fixed;
+            }
+            .source {
+                color: #fff;
+                font-size: 10px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                line-height: normal;
+                text-align: right;
+                position: absolute;
+                bottom: 40px;
+                right: 10px;
+            }
+            .iconWrap {
+                position: absolute;
+                width: 100%;
+                bottom: 10px;
+                .scrollIcon {
+                    width: 20px;
+                    height: 35px;
+                    margin: 0 auto;
+                    border: 2px solid $white;
+                    border-radius: 15px;
+                    .circle {
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 2.5px;
+                        margin: 3px auto 0 auto;
+                        background-color: $white;
+                        @include animation(scroll_circle $scr_circle_time linear infinite);
+                    }
+                    .arrow {
+                        width: 10px;
+                        height: 3px;
+                        margin: 0 auto;
+                        opacity: 0;
+                        @include animation(scroll_arrow $scr_circle_time linear infinite);
+                        svg {
+                            .st0 {
+                                fill: none;
+                                stroke: $white;
+                                stroke-width: 15;
+                                stroke-miterlimit: 10;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .detail {
+            width: 100%;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            .detailWrap {
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+                .txtBg {
+                    position: absolute;
+                    left: 0;
+                    bottom: -60px;
+                    width: 100%;
+                    padding-bottom: 30px;
+                    background-color: $grey;
+                    height: 360px; //equal to .detailWrap height
+                    @include screen(mMedium) {
+                        height: 340px;
+                    }
+                    @include screen(mLarge) {
+                        height: 306px;
+                    }
+                    @include screen(tb) {
+                        height: 340px;
+                    }
+                    @include screen(pcSmall) {
+                        height: 180px;
+                    }
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 100%;
+                        width: 50%;
+                        padding-bottom: inherit;
+                        background-color: inherit;
+                    }
+                    &:before {
+                        right: 50%;
+                        @include transform(skewX(50deg));
+                        @include transform-origin(100% 100%);
+                    }
+                    &:after {
+                        left: 50%;
+                        @include transform(skewX(-50deg));
+                        @include transform-origin(0 100%);
+                    }
+                }
+                .txtInner {
+                    max-width: $pc_max_width;
+                    margin: 0 auto;
+                    overflow: hidden;
+                    position: relative;
+                    padding-bottom: 60px;
+                    @include screen(pcSmall) {
+                        padding-bottom: 0px;
+                    }
+                    .txtWrap {
+                        padding-left: 40px;
+                        padding-right: 40px;
+                        color: $white;
+                        @include screen(tb) {
+                            padding-left: $tb_gap;
+                            padding-right: $tb_gap;
+                        }
+                        @include screen(pcSmall) {
+                            padding-left: 20px;
+                            width: 75%;
+                            float: left;
+                        }
+                        .txtWidth {
+                            width: 100%;
+                            overflow: hidden;
+                            padding-top: 20px;
+                            @include screen(pcSmall) {
+                                width: 100%;
+                                padding-top: 50px;
+                                padding-bottom: 10px;
+                            }
+                            .quote {
+                                width: 27px;
+                                height: 24px;
+                                margin: 0 auto;
+                                display: none;
+                                svg {
+                                    .st0 {
+                                        fill: $white;
+                                    }
+                                }
+                                @include screen(pcSmall) {
+                                    display: block;
+                                    float: left;
+                                }
+                            }
+                            .txt {
+                                max-height: $line-height*8;
+                                overflow: hidden;
+                                margin: $line-height 0;
+                                @include screen(pcSmall) {
+                                    width: 655px;
+                                    height: $line-height*3;
+                                    margin: 0;
+                                    padding-bottom: 20px;
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                    a.link {
+                        display: block;
+                        background-color: $pink;
+                        color: $white;
+                        text-align: right;
+                        line-height: 60px;
+                        padding-left: 40px;
+                        padding-right: 40px;
+                        position: absolute;
+                        width: calc(100% - 80px);
+                        bottom: 0;
+                        @include screen(tb) {
+                            padding-left: $tb_gap;
+                            padding-right: $tb_gap;
+                            width: calc(100% - $tb_gap);
+                        }
+                        @include screen(pcSmall) {
+                            width: 176px;
+                            height: 176px;
+                            padding: 0;
+                            text-align: center;
+                            line-height: 2em;
+                            right: 0;
+                            top: 0;
+                        }
+                        .linkWrap {
+                            width: 100%;
+                            @include screen(pcSmall) {
+                                width: 76%;
+                                height: 60%;
+                                margin: 12%;
+                                padding-top: 16%;
+                                border: 1px solid $white;
+                            }
+                            .ch {
+                                @include screen(pcSmall) {
+                                    display: block;
+                                }
+                            }
+                        }
+                        &:hover {
+                            background-color: $pink_90;
+                            .arrow {
+                                @include animation(arrow_move $arrow_time linear infinite);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

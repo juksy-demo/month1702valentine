@@ -1,0 +1,168 @@
+//animation for modules
+@mixin cus_fadeInUp {
+    0% {
+        @include transform(translate(0,20px));
+        opacity:0;
+    }
+    100% {
+        @include transform(translate(0,0));
+        opacity: 1;
+    }
+}
+@include keyframes(custom_fadeinup) {
+    @include cus_fadeInUp;
+}
+
+//animation scrollIcon for headers
+@mixin scr_circle {
+    0% {
+        @include transform(translateY(0));
+    }
+    90% {
+        @include transform(translateY(15px));
+    }
+    100% {
+        @include transform(translateY(15px));
+    }
+}
+@include keyframes(scroll_circle) {
+    @include scr_circle;
+}
+@mixin scr_arrow {
+    0% {
+        @include transform(translateY(0));
+        opacity: 0;
+    }
+    60% {
+        @include transform(translateY(0));
+        opacity: 1;
+    }
+    100% {
+        @include transform(translateY(10px));
+    }
+}
+@include keyframes(scroll_arrow) {
+    @include scr_arrow;
+}
+
+//animation bullet for header03
+@mixin header03_bullet {
+    0% {
+        @include transform(scaleX(0));
+        @include transform-origin(0);
+    }
+    100% {
+        @include transform(scaleX(1));
+        @include transform-origin(0);
+    }
+}
+@include keyframes(hder_bullet) {
+    @include header03_bullet;
+}
+
+//animation arrow for layouts
+@mixin ar_move {
+    0% {
+        @include transform(none);
+    }
+    50% {
+        @include transform(translate(10px,0));
+    }
+    100% {
+        @include transform(none);
+    }
+}
+@include keyframes(arrow_move) {
+    @include ar_move;
+}
+
+//animation down img for layout_01
+@mixin translateY0 {
+    @include transform(translateY(0));
+}
+@mixin translateY-160 {
+    @include transform(translateY(-160px));
+}
+
+@mixin img_down1 {
+    0%, 49% {
+        @include translateY0;
+        z-index: 1;
+    }
+    50% {
+        @include translateY-160;
+        z-index: 0;
+    }
+    51%, 90% {
+        @include translateY-160;
+        z-index: 2;
+    }
+    99% {
+        @include translateY0;
+        z-index: 2;
+    }
+    100% {
+        @include translateY0;
+        z-index: 1;
+    }
+}
+@include keyframes(downImg1) {
+    @include img_down1;
+}
+
+@mixin img_down2 {
+    0%, 40% {
+        @include translateY-160;
+        z-index: 2;
+    }
+    49% {
+        @include translateY0;
+        z-index: 2;
+    }
+    50%, 99% {
+        @include translateY0;
+        z-index: 1;
+    }
+    100% {
+        @include translateY-160;
+        z-index: 0;
+    }
+}
+@include keyframes(downImg2) {
+    @include img_down2;
+}
+
+//animation for btnfixed
+@include keyframes(anim-in) {
+    0% {
+        width: 100%;
+        @include transform(scale(0.5));
+        @include transform-origin(50% 50%);
+    }
+    100% {
+        width: 100%;
+        @include transform(scale(1));
+    }
+}
+
+@include keyframes(anim-in-pseudo) {
+  0% { background: rgba(#fff,0.5); }
+  100% { background: rgba(#fff,0); }
+}
+
+@include keyframes(anim-out) {
+    0% {
+        width: 100%;
+        @include transform(scale(0.5));
+        @include transform-origin(50% 50%);
+    }
+    100% {
+        width: 100%;
+        @include transform(scale(1));
+    }
+}
+
+@include keyframes(anim-out-pseudo) {
+  0% { background: rgba(#fff,0.5); }
+  100% { background: rgba(#fff,0); }
+}
