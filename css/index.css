@@ -2779,9 +2779,6 @@ _:-moz-tree-row(hover), .fixedBtnCover_01 .coverWrap .main .mainWrap .item ul.sh
 _:-ms-input-placeholder, :root .fixedBtnCover_01 .coverWrap .main .mainWrap .item ul.share li .material_btn input.toggle[type="checkbox"], ul.fixedBtn_01 li .material_btn input.toggle[type="checkbox"] {
   display: none; }
 
-body {
-  background-color: #000; }
-
 .header_03 .headerWrap .visualBg .bannerTitle {
   display: none; }
 
@@ -2789,12 +2786,28 @@ body {
   display: none; }
 
 .header_03 .headerWrap .detail .detailWrap .txtBg {
-  background-color: #00222d; }
+  background-color: black; }
 
 .header_03 .headerWrap .detail .detailWrap .txtInner a.link {
-  background-color: #07d000; }
+  background-color: #ffe246;
+  color: #000; }
   .header_03 .headerWrap .detail .detailWrap .txtInner a.link:hover {
-    background-color: rgba(7, 208, 0, 0.9); }
+    background-color: rgba(255, 226, 70, 0.9); }
+  @media screen and (min-width: 1024px) {
+    .header_03 .headerWrap .detail .detailWrap .txtInner a.link .linkWrap {
+      border: 1px solid #000; } }
+
+.layout_03 .layoutWrap .articleWrap ul.article li:nth-child(odd) a.img .linkWrap {
+  background-color: rgba(255, 226, 70, 0.5); }
+
+.layout_03 .layoutWrap .articleWrap ul.article li:nth-child(even) a.img .linkWrap {
+  background-color: rgba(255, 226, 70, 0.5); }
+
+.layout_05 .layoutWrap ul.article li a.img .linkWrap {
+  background-color: rgba(255, 226, 70, 0.5); }
+
+.layout_06 .layoutWrap ul.article li a.img .linkWrap {
+  background-color: rgba(255, 226, 70, 0.5); }
 
 .gallery_01 ul.slider li {
   height: 240px; }
@@ -2814,3 +2827,21 @@ body {
         height: 100%; } }
   .gallery_01 ul.slider li .txt {
     display: none; }
+
+.video_01 {
+  background-image: url("../img/video_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media screen and (min-width: 1280px) {
+    .video_01 {
+      background-size: 100% auto; } }
+  @media screen and (min-width: 1280px) {
+    .video_01 .videoWrap {
+      padding: 15% 0 4% 0; } }
+
+.footer_01 {
+  background-color: black; }
+
+ul.fixedBtn_01 li .material_btn,
+.fixedBtnCover_01 .coverWrap .main .mainWrap .item ul.share li .material_btn {
+  background-color: #ffe246; }

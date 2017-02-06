@@ -1,6 +1,6 @@
 body {
   //若使用 header_02 將背景變成黑色 影片較不會破圖
-  background-color: $black;
+  // background-color: $black;
 }
 
 .header_03 {
@@ -19,15 +19,21 @@ body {
       .detailWrap {
         .txtBg {
           //描述背景色
-          background-color: rgba(0, 34, 45, 1);
+          background-color: rgba(0, 0, 0, 1);
         }
         .txtInner {
           a.link {
             //馬上閱讀背景色
-            background-color: rgba(7, 208, 0, 1);
+            background-color: rgba(255, 226, 70, 1);
+            color: $black;
             &:hover {
               //馬上閱讀背景色－滑過
-              background-color: rgba(7, 208, 0, 0.9);
+              background-color: rgba(255, 226, 70, 0.9);
+            }
+            .linkWrap {
+              @include screen(pcSmall) {
+                border: 1px solid $black;
+              }
             }
           }
         }
@@ -83,7 +89,7 @@ body {
             a.img {
               .linkWrap {
                 //奇數圖片滑過顏色
-                //background-color: rgba(188, 0, 45, 0.9);
+                background-color: rgba(255, 226, 70, 0.5);
               }
             }
           }
@@ -97,7 +103,7 @@ body {
             a.img {
               .linkWrap {
                 //偶數圖片滑過顏色
-                //background-color: rgba(188, 0, 45, 0.9);
+                background-color: rgba(255, 226, 70, 0.5);
               }
             }
             .txtWrap {
@@ -150,7 +156,7 @@ body {
         a.img {
           .linkWrap {
             //圖片滑過顏色
-            //background-color: rgba(235, 90, 36, 0.9);
+            background-color: rgba(255, 226, 70, 0.5);
           }
         }
         .txtWrap {
@@ -195,7 +201,7 @@ body {
         a.img {
           .linkWrap {
             //圖片滑過色塊
-            //background-color: rgba(235, 90, 36, 0.9);
+            background-color: rgba(255, 226, 70, 0.5);
           }
         }
         .txtWrap {
@@ -270,31 +276,31 @@ body {
 
 .video_01 {
   //模版背景
-  //background-image: url('../img/video_bg.jpg');
-  //background-repeat: no-repeat;
-  //background-size: cover;
+  background-image: url('../img/video_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   //background-color: rgba(23,23,118,0.7);
   @include screen(pcLarge) {
     //桌機模版背景
-    //background-size: 100% auto;
+    background-size: 100% auto;
   }
   .videoWrap {
     @include screen(pcLarge) {
       //桌機模版上下內距
-      //padding: 15% 0 4% 0;
+      padding: 15% 0 4% 0;
     }
   }
 }
 
 .footer_01 {
   //背景色
-  //background-color: rgba(188,202,210,1);
+  background-color: rgba(0, 0, 0,1);
 }
 
 ul.fixedBtn_01,
 .fixedBtnCover_01 .coverWrap .main .mainWrap .item ul.share {
   li .material_btn {
     //按鈕色
-    //background-color: rgba(98,195,204,1);
+    background-color: rgba(255, 226, 70,1);
   }
 }
