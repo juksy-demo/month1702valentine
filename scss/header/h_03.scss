@@ -4,6 +4,7 @@
     height: auto; //js visual + detail - triangle(30)
     .visualBg {
       width: 100%;
+      min-height: 50vh;
       position: relative;
       background-color: $white;
       .header_03_banner {
