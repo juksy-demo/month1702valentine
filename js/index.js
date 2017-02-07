@@ -177,7 +177,7 @@
     文字三角形凹槽高度
     -----------------------*/
     var $headerWrap = $('.header_03 .headerWrap'),
-      $visualBg = $headerWrap.find('.visualBg'),
+      $visualBg = $headerWrap.find('.banner'),
       $txtBg = $headerWrap.find('.detail .detailWrap .txtBg'),
       $txtWrap = $headerWrap.find('.detail .detailWrap');
     $txtBg.height($txtWrap.height());

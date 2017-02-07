@@ -1202,7 +1202,6 @@ img {
   height: auto; }
   .header_03 .headerWrap .visualBg {
     width: 100%;
-    min-height: 80vh;
     position: relative;
     background-color: #fff; }
     .header_03 .headerWrap .visualBg .header_03_banner {
