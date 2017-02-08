@@ -177,11 +177,10 @@
     文字三角形凹槽高度
     -----------------------*/
     var $headerWrap = $('.header_03 .headerWrap'),
-      $visualBg = $headerWrap.find('.banner'),
       $txtBg = $headerWrap.find('.detail .detailWrap .txtBg'),
       $txtWrap = $headerWrap.find('.detail .detailWrap');
     $txtBg.height($txtWrap.height());
-    $headerWrap.height($txtBg.height() + $visualBg.height() - 31);
+    $headerWrap.height($txtBg.height() + $headerWrap.find('.banner').height() - 31);
   };
   var header_03_slider = function() {
     var $header_03_banner = $("#header_03_banner");
