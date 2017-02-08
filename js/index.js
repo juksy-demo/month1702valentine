@@ -180,7 +180,6 @@
       $txtBg = $headerWrap.find('.detail .detailWrap .txtBg'),
       $txtWrap = $headerWrap.find('.detail .detailWrap');
     $txtBg.height($txtWrap.height());
-    console.log($headerWrap.find('.banner li .picture img').height());
     $headerWrap.height($txtBg.height() + $headerWrap.find('.banner li .picture img').height() - 31);
   };
   var header_03_slider = function() {
