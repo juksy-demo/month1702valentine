@@ -1,0 +1,102 @@
+.layout_05 {
+    background-color: $white;
+    .layoutWrap {
+        .title {
+            padding: 50px $m_gap 0 $m_gap;
+            text-align: center;
+            font-size: 28px;
+            line-height: 1.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            &:after {
+                content: '';
+                display: block;
+                width: 100px;
+                height: 5px;
+                margin: 5px auto 10px auto;
+                background-color: $black;
+            }
+        }
+        .detail {
+            padding: 0 $m_gap;
+            text-align: center;
+            font-size: 30px;
+            line-height: 1.5em;
+            font-weight: bold;
+        }
+        .subTitleWrap {
+            @include screen(pcSmall){
+                width: 970px;
+                margin: 0 auto 0 auto;
+            }
+            .subTitle {
+                margin: 20px $m_gap;
+                color: $black_50;
+                @include screen(tb) {
+                    margin: 20px $tb_gap 0 $tb_gap;
+                }
+                @include screen(pcSmall){
+                    width: 65%;
+                    margin: 20px auto 0 auto;
+                    text-align: center;
+                }
+            }
+        }
+        ul.article {
+            overflow: hidden;
+            max-width: $pc_max_width;
+            margin: 0 auto;
+            padding: 20px $m_gap;
+            @include screen(tb) {
+                padding: 20px $tb_gap;
+            }
+            @include screen(pcSmall) {
+                padding: 40px 0;
+            }
+            li {
+                @include list_style_none;
+                width: 100%;
+                margin-bottom: 20px;
+                @include screen(pcSmall) {
+                    width: 48%;
+                }
+                &:nth-child(odd) {
+                    float: left;
+                }
+                &:nth-child(even) {
+                    float: right;
+                }
+                a.img {
+                    @include a_img;
+                    width: 100%;
+                    @include square_linkWrap;
+                    .linkWrap {
+                        height: calc(280px*0.8);
+                        @include screen(mLarge) {
+                            height: calc(374px*0.8);
+                        }
+                        @include screen(tb) {
+                            height: calc(688px*0.8);
+                        }
+                        @include screen(pcSmall) {
+                            height: calc(465px*0.8);
+                        }
+                    }
+                }
+                .txtWrap {
+                    padding: 10px 0;
+                    a.txt {
+                        display: block;
+                        max-height: $line-height*3;
+                        overflow: hidden;
+                        text-align: center;
+                        h3 {
+                            font-weight: normal;
+                            @include a_txt;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

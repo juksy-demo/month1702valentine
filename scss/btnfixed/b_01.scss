@@ -1,0 +1,339 @@
+ul.fixedBtn_01 {
+    display: block;
+    @include transform(translate(0, 100px));
+    opacity: 0;
+    overflow: auto;
+    position: fixed;
+    right: $m_gap;
+    bottom: $m_gap;
+    z-index: 1;
+    @include transition;
+    @include screen(tb) {
+        right: $tb_gap;
+        bottom: $tb_gap;
+    }
+    @include screen(pcSmall) {
+        right: $tb_gap;
+    }
+    &.show {
+        @include transform(translate(0, 0));
+        opacity: 1;
+    }
+    li {
+        @include list_style_none;
+        float: left;
+        margin: 10px 5px;
+        .material_btn {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+            border-radius: 30px;
+            background-color: $pink;
+            cursor: pointer;
+            @include transition;
+            &:hover {
+                box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 3px 10px 0 rgba(0, 0, 0, .24);
+            }
+            svg.share g {
+                .st0 {
+                    fill: $white;
+                }
+                .st1 {
+                    fill: none;
+                    stroke: $white;
+                    stroke-miterlimit: 10;
+                }
+            }
+            svg.top g {
+                .st0 {
+                    fill: $white;
+                    stroke: $white;
+                    stroke-width: 1.6;
+                    stroke-miterlimit: 10;
+                }
+            }
+            input[type="checkbox"].toggle {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                left: 0;
+                top: 0;
+                cursor: pointer;
+                border: 0;
+                @include appearance(none);
+                z-index: 1;
+                &:focus {
+                    outline: 0;
+                }
+                &:checked {
+                    background-color: transparent;
+                }
+            }
+            .anim {
+                position: absolute;
+                // The ':before' psuedo element is a spacing ghost to make the 
+                // ':after' psuedo element a square, with width & height 
+                // automatically equal to the parent's width.
+                &:before {
+                    position: relative;
+                    content: '';
+                    display: block;
+                    margin-top: 100%;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border-radius: 50%;
+                }
+            }
+            .toggle:checked + .anim {
+                @include animation(anim-in 0.75s);
+                &:after {
+                    @include animation(anim-in-pseudo 0.75s);
+                }
+            }
+            .toggle:not(:checked) + .anim {
+                @include animation(anim-out 0.75s);
+                &:after {
+                    @include animation(anim-out-pseudo 0.75s);
+                }
+            }
+        }
+    }
+}
+
+.fixedBtnCover_01 {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    @include transform(translate(0, 100vh));
+    opacity: 0;
+    @include transition;
+    &.show {
+        @include transform(translate(0, 0));
+        opacity: 1;
+    }
+    .coverWrap {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        .copytip {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: -webkit-flex;
+            display:         flex;
+            -webkit-align-items: center;
+                    align-items: center;
+            -webkit-justify-content: center;
+                    justify-content: center;
+            opacity: 0;
+            @include transition(all,0.5s);
+            &.show {
+                opacity: 1;
+            }
+            .copytipWrap {
+                width: 100px;
+                height: 100px;
+                background-color: $black_50;
+                border-radius: 10px;
+                .icon {
+                    padding: 15px 0 10px 0;
+                    svg {
+                        width: 44px;
+                        height: 30px;
+                        display: block;
+                        margin: 0 auto;
+                        fill: none;
+                        stroke: #FFFFFF;
+                        stroke-width: 3;
+                        stroke-miterlimit: 10;
+                    }
+                }
+                .txt {
+                    color: $white;
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 20px;
+                }
+            }
+        }
+        .backCover {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+        }
+        .main {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            .mainWrap {
+                position: relative;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: -1px 0px 5px 0px rgba(0, 0, 0, 0.1);
+                .canvas {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    bottom: 0;
+                    top: 0;
+                    z-index: -1;
+                    background: rgba(255, 255, 255, .8);
+                }
+                .item {
+                    background: rgba(255, 255, 255, .8);
+                    padding-bottom: 20px;
+                    .arrow {
+                        width: 50px;
+                        height: 50px;
+                        margin: 0 auto;
+                        cursor: pointer;
+                    }
+                    ul.share {
+                        overflow: hidden;
+                        width: 240px;
+                        margin: 0 auto;
+                        @include screen(pcSmall) {
+                            width: 160px;
+                        }
+                        li {
+                            @include list_style_none;
+                            float: left;
+                            margin: 0 10px;
+                            &.line {
+                                @include screen(pcSmall) {
+                                    display: none;
+                                }
+                            }
+                            #copy {
+                                display: none;
+                            }
+                            .material_btn {
+                                display: block;
+                                position: relative;
+                                width: 60px;
+                                height: 60px;
+                                overflow: hidden;
+                                border-radius: 30px;
+                                background-color: $pink;
+                                cursor: pointer;
+                                @include transition;
+                                &:hover {
+                                    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 3px 10px 0 rgba(0, 0, 0, .24);
+                                }
+                                &:before {
+                                    content: "";
+                                    display: block;
+                                    position: absolute;
+                                    width: 50%;
+                                    height: 100%;
+                                    left: 50%;
+                                    border-radius: 0 30px 30px 0;
+                                    background-color: rgba(0, 0, 0, 0.13);
+                                }
+                                input[type="checkbox"].toggle {
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+                                    margin: 0;
+                                    left: 0;
+                                    top: 0;
+                                    cursor: pointer;
+                                    border: 0;
+                                    @include appearance(none);
+                                    z-index: 1;
+                                    &:focus {
+                                        outline: 0;
+                                    }
+                                    &:checked {
+                                        background-color: transparent;
+                                    }
+                                }
+                                .anim {
+                                    position: absolute;
+                                    // The ':before' psuedo element is a spacing ghost to make the 
+                                    // ':after' psuedo element a square, with width & height 
+                                    // automatically equal to the parent's width.
+                                    &:before {
+                                        position: relative;
+                                        content: '';
+                                        display: block;
+                                        margin-top: 100%;
+                                    }
+                                    &:after {
+                                        content: '';
+                                        position: absolute;
+                                        top: 0;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        border-radius: 50%;
+                                    }
+                                }
+                                .toggle:checked + .anim {
+                                    @include animation(anim-in 0.75s);
+                                    &:after {
+                                        @include animation(anim-in-pseudo 0.75s);
+                                    }
+                                }
+                                .toggle:not(:checked) + .anim {
+                                    @include animation(anim-out 0.75s);
+                                    &:after {
+                                        @include animation(anim-out-pseudo 0.75s);
+                                    }
+                                }
+                                svg {
+                                    position: absolute;
+                                    &.fb {
+                                        .st0 {
+                                            fill: $white;
+                                        }
+                                    }
+                                    &.copy {
+                                        .st0 {
+                                            fill: $white;
+                                            stroke: $white;
+                                            stroke-width: 0.5;
+                                            stroke-miterlimit: 10;
+                                        }
+                                    }
+                                    &.line {
+                                        .st0 {
+                                            fill: $white;
+                                        }
+                                    }
+                                }
+                            }
+                            .txt {
+                                letter-spacing: normal;
+                                text-align: center;
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// checkbox can't be transparent, fixed for firefox*
+_:-moz-tree-row(hover), .fixedBtnCover_01 .coverWrap .main .mainWrap .item ul.share li .material_btn input.toggle[type="checkbox"], ul.fixedBtn_01 li .material_btn input.toggle[type="checkbox"] {
+    display: none;
+}
+
+// checkbox can't be transparent, fixed for IE/edge>=10
+_:-ms-input-placeholder, :root .fixedBtnCover_01 .coverWrap .main .mainWrap .item ul.share li .material_btn input.toggle[type="checkbox"], ul.fixedBtn_01 li .material_btn input.toggle[type="checkbox"] {
+    display: none;
+}

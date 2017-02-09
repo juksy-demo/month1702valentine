@@ -1,0 +1,55 @@
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	margin: 0;
+	font-family: $font_body;
+	font-size: 16px;
+	line-height: $line-height;
+	letter-spacing: 3px;
+	text-align: justify;
+	overflow-x: hidden;
+    @include screen(tb) {
+		font-size: 24px;
+	}
+	@include screen(pcSmall){
+		font-size: 18px;
+	}
+	&.noscroll {
+		overflow: hidden;
+	}
+}
+
+h1, h2, h3, h4, p, blockquote, figure, ol, ul {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4 { 
+	font-size: inherit;
+}
+
+a {
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	@include transition;
+}
+
+img {
+	border: 0;
+}
+
+.hide {
+	display: none;
+}
+
+// plugin wow = scroll to animation
+// animation fadeinup for all elements
+.custom_fadeinup {
+  	@include animation(custom_fadeinup 1s cubic-bezier(0.165, 0.84, 0.44, 1));
+}

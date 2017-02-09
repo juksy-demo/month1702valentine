@@ -1,0 +1,35 @@
+doctype html
+html(lang='zh-TW')
+  head
+    include ./base/head.jade
+  body
+    #fb-root
+    h1.hide 夏日穿搭特輯 - JUKSY 流行生活網
+    include ./nav/n_01.jade
+    include ./header/h_02.jade
+    include ./gallery/g_01.jade
+    include ./layout/l_04.jade
+    include ./gallery/g_02.jade
+    include ./article/a_01.jade
+    include ./footer/f_01.jade
+    include ./btnfixed/b_01.jade
+    include ./gallery/photoswipe_ui.jade
+
+    // JS start
+    include ./nav/n_01_tem.jade
+
+    // JS cdn
+    include ./base/cdnjs.jade
+
+    // JS DEV FILE
+    include ./base/devjs.jade
+
+    // JS MIN FILE
+    //- include ./base/minjs.jade
+
+    // JS third party
+    script(type='text/javascript')
+      include ./js/foot.js
+    // JS third party end
+
+    // JS end

@@ -1,0 +1,144 @@
+.layout_04 {
+    position: relative;
+    background-color: $white;
+    .layoutWrap {
+        @include screen(pcSmall) {
+            margin: 0 auto;
+        }
+        .title {
+            padding: 50px $m_gap 0 $m_gap;
+            text-align: center;
+            font-size: 28px;
+            line-height: 1.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            &:after {
+                content: '';
+                display: block;
+                width: 100px;
+                height: 5px;
+                margin: 5px auto 10px auto;
+                background-color: $black;
+            }
+        }
+        .detail {
+            margin: 0 auto;
+            padding: 0 $m_gap;
+            color: $black;
+            font-size: 30px;
+            line-height: 1.5em;
+            text-align: center;
+            font-weight: bold;
+            @include screen(tb) {
+                width: 500px;
+            }
+            @include screen(pcSmall) {
+                width: 620px;
+                text-align: center;
+            }
+        }
+        .subTitleWrap {
+            @include screen(pcSmall){
+                width: 970px;
+                margin: 0 auto 30px auto;
+            }
+            .subTitle {
+                margin: 20px $m_gap;
+                color: $black_50;
+                @include screen(tb) {
+                    margin: 20px $tb_gap;
+                }
+                @include screen(pcSmall){
+                    width: 65%;
+                    margin: 20px auto;
+                    text-align: center;
+                }
+            }
+        }
+        .sliderWrap {
+            position: relative;
+            margin-top: $m_gap;
+            @include screen(pcSmall) {
+                padding-bottom: 0px;
+            }
+            .slidesWrap {
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                @include screen(pcSmall) {
+                    width: calc(276px*3 - 20px); // (width+gap)*3-gap
+                    overflow-x: hidden;
+                    margin: 0 auto;
+                }
+                @include screen(pcLarge) {
+                    width: calc(420px*3 - 20px);
+                }
+                ul.slides {
+                    overflow: hidden;
+                    margin: 0;
+                    padding: 0;
+                    width: calc(212px*3);
+                    @include screen(tb) {
+                        width: calc(520px*3);
+                    }
+                    @include screen(pcSmall) {
+                        width: calc(276px*3 - 20px);
+                    }
+                    @include screen(pcLarge) {
+                        width: calc(420px*3 - 20px);
+                    }
+                    li {
+                        @include list_style_none;
+                        width: 192px;
+                        float: left;
+                        margin-right: $m_gap;
+                        @include screen(tb) {
+                            width: 500px;
+                        }
+                        @include screen(pcSmall) {
+                            width: 256px;
+                        }
+                        @include screen(pcLarge) {
+                            width: 400px;
+                        }
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                        a.img {
+                            @include a_img;
+                            width: 192px;
+                            height: 192px;
+                            @include square_linkWrap;
+                            @include screen(tb) {
+                                width: 500px;
+                                height: 500px;
+                            }
+                            @include screen(pcSmall) {
+                                width: 256px;
+                                height: 256px;
+                            }
+                            @include screen(pcLarge) {
+                                width: 400px;
+                                height: 400px;
+                            }
+                        }
+                        .txtWrap {
+                            padding: $m_gap 10px;
+                            a.txt {
+                                display: block;
+                                height: $line-height*3;
+                                overflow: hidden;
+                                text-align: center;
+                                h3 {
+                                    font-weight: normal;
+                                    @include a_txt;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

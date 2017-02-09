@@ -1,0 +1,63 @@
+//device width
+$m_portrait_med_w: 375px;
+$m_portrait_max_w: 414px;
+$tablet_portrait_min_w: 768px;
+$pc_landscape_min_w: 1024px;
+$pc_landscape_min_w_extra: 1280px;
+
+//gap
+$m_gap: 20px;
+$tb_gap: 40px;
+
+//pc max width
+$pc_max_width: 970px;
+
+//fonts
+$font_body: 'Roboto Condensed', 'Microsoft JhengHei', sans-serif;
+$line-height: 1.8em;
+
+//colors
+$grey: rgba(51,51,51,1); // rgba(188,202,210,1)
+$pink: rgba(128,128,128,1); // rgba(242,158,173,1)
+$pink_90: rgba(0,0,0,0.5); // rgba(242,158,173,0.9)
+$white: #fff;
+$white_50: rgba(255,255,255,0.5);
+$white_90: rgba(255,255,255,0.9);
+$black: #000;
+$black_5: rgba(0,0,0,0.05);
+$black_30: rgba(0,0,0,0.3);
+$black_50: rgba(0,0,0,0.5);
+$black_70: rgba(0,0,0,0.7);
+$black_80: rgba(0,0,0,0.8);
+
+//img urls
+$url_header_01_visual_m: url('../img/header/h_01/visual_m.jpg');
+$url_header_01_visual_tb: url('../img/header/h_01/visual_tb.jpg');
+$url_header_01_visual_pc: url('../img/header/h_01/visual_pc.jpg');
+$url_header_02_title: url('../img/header/h_02/htitle.png');
+$url_header_02_cover: url('../img/header/h_02/hcover.png');
+$url_header_02_visual_m: url('../img/header/h_02/visual_m.jpg');
+$url_header_02_visual_tb: url('../img/header/h_02/visual_tb.jpg');
+$url_header_03_cover: url('../img/header/h_03/hcover.png');
+$url_header_03_title_pc: url('../img/header/h_03/pc/htitle.png');
+$url_header_03_title_tb: url('../img/header/h_03/tb/htitle.png');
+$url_header_03_title_m: url('../img/header/h_03/m/htitle.png');
+$url_header_04_visual_m: url('../img/header/h_04/visual_m.jpg');
+$url_header_04_visual_tb: url('../img/header/h_04/visual_tb.jpg');
+$url_header_04_visual_pc: url('../img/header/h_04/visual_pc.jpg');
+
+//animation arrow
+$arrow_time: 1s;
+
+//animation border
+$border_width: 2px;
+$border_time: 0.5s;
+
+//animation scrollIcon
+$scr_circle_time: 1s;
+
+//animation down img
+$downImg_time1: 19s;
+$downImg_time2: 17s;
+$downImg_time3: 23s;
+$downImg_time4: 13s;

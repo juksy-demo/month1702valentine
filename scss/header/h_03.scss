@@ -1,0 +1,303 @@
+.header_03 {
+  .headerWrap {
+    position: relative;
+    height: auto; //js visual + detail - triangle(30)
+    .visualBg {
+      width: 100%;
+      position: relative;
+      background-color: $white;
+      .header_03_banner {
+        // generate by lightSlider js
+        position: relative;
+        .lSpg {
+          width: 100%;
+          margin: 0;
+          position: absolute;
+          bottom: 50px;
+          z-index: 1;
+          &>li {
+            padding: 0 5px;
+            a {
+              width: 40px;
+              padding: 10px 0;
+              font-size: 0;
+              line-height: 0;
+              border-radius: 0;
+              background-color: transparent;
+              &:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: rgba(128, 128, 128, 0.2);
+              }
+            }
+            a:hover {
+              &:after {
+                background-color: rgba(128, 128, 128, 1);
+              }
+            }
+          }
+          &>li.active {
+            a {
+              position: relative;
+              &:before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: rgba(128, 128, 128, 0.2);
+                position: absolute;
+                left: 0;
+                top: 10px;
+              }
+              &:after {
+                background-color: rgba(128, 128, 128, 1);
+                @include animation(hder_bullet 3s linear);
+                position: absolute;
+                left: 0;
+                top: 10px;
+              }
+            }
+          }
+        }
+      }
+      // banner default
+      ul.banner {
+        li {
+          .picture {
+            img {
+              display: block;
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+      .bannerCover {
+        background-image: $url_header_03_cover;
+        background-size: 25px auto;
+        opacity: 0.1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include screen(tb) {
+          background-size: 37.5px auto;
+          opacity: 0.3;
+        }
+      }
+      .bannerTitle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: $url_header_03_title_m;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        @include screen(tb) {
+          background-image: $url_header_03_title_tb;
+        }
+        @include screen(pcSmall) {
+          background-image: $url_header_03_title_pc;
+        }
+      }
+      .source {
+        color: #fff;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: normal;
+        text-align: right;
+        position: absolute;
+        bottom: 40px;
+        right: 10px;
+      }
+      .iconWrap {
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        .scrollIcon {
+          width: 20px;
+          height: 35px;
+          margin: 0 auto;
+          border: 2px solid $white;
+          border-radius: 15px;
+          .circle {
+            width: 5px;
+            height: 5px;
+            border-radius: 2.5px;
+            margin: 3px auto 0 auto;
+            background-color: $white;
+            @include animation(scroll_circle $scr_circle_time linear infinite);
+          }
+          .arrow {
+            width: 10px;
+            height: 3px;
+            margin: 0 auto;
+            opacity: 0;
+            @include animation(scroll_arrow $scr_circle_time linear infinite);
+            svg {
+              .st0 {
+                fill: none;
+                stroke: $white;
+                stroke-width: 15;
+                stroke-miterlimit: 10;
+              }
+            }
+          }
+        }
+      }
+    }
+    .detail {
+      width: 100%;
+      font-weight: bold;
+      position: absolute;
+      bottom: 0;
+      .detailWrap {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        .txtBg {
+          position: absolute;
+          left: 0;
+          bottom: -60px;
+          width: 100%;
+          height: 100%; //js for txtWrap.height
+          padding-bottom: 30px;
+          background-color: $grey;
+          &:before,
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            width: 50%;
+            padding-bottom: inherit;
+            background-color: inherit;
+          }
+          &:before {
+            right: 50%;
+            @include transform(skewX(50deg));
+            @include transform-origin(100% 100%);
+          }
+          &:after {
+            left: 50%;
+            @include transform(skewX(-50deg));
+            @include transform-origin(0 100%);
+          }
+        }
+        .txtInner {
+          max-width: $pc_max_width;
+          margin: 0 auto;
+          overflow: hidden;
+          position: relative;
+          padding-bottom: 60px;
+          @include screen(pcSmall) {
+            padding-bottom: 0px;
+          }
+          .txtWrap {
+            padding-left: 40px;
+            padding-right: 40px;
+            color: $white;
+            @include screen(tb) {
+              padding-left: $tb_gap;
+              padding-right: $tb_gap;
+            }
+            @include screen(pcSmall) {
+              padding-left: 20px;
+              width: 75%;
+              float: left;
+            }
+            .txtWidth {
+              width: 100%;
+              overflow: hidden;
+              padding-top: 20px;
+              @include screen(pcSmall) {
+                width: 100%;
+                padding-top: 50px;
+                padding-bottom: 10px;
+              }
+              .quote {
+                width: 27px;
+                height: 24px;
+                margin: 0 auto;
+                display: none;
+                svg {
+                  .st0 {
+                    fill: $white;
+                  }
+                }
+                @include screen(pcSmall) {
+                  display: block;
+                  float: left;
+                }
+              }
+              .txt {
+                max-height: $line-height*8;
+                overflow: hidden;
+                margin: $line-height 0;
+                @include screen(pcSmall) {
+                  width: 655px;
+                  height: $line-height*3;
+                  margin: 0;
+                  padding-bottom: 20px;
+                  float: right;
+                }
+              }
+            }
+          }
+          a.link {
+            display: block;
+            background-color: $pink;
+            color: $white;
+            text-align: right;
+            line-height: 60px;
+            padding-left: 40px;
+            padding-right: 40px;
+            position: absolute;
+            width: calc(100% - 80px);
+            bottom: 0;
+            @include screen(tb) {
+              padding-left: $tb_gap;
+              padding-right: $tb_gap;
+              width: calc(100% - $tb_gap);
+            }
+            @include screen(pcSmall) {
+              width: 176px;
+              height: 176px;
+              padding: 0;
+              text-align: center;
+              line-height: 2em;
+              right: 0;
+              top: 0;
+            }
+            .linkWrap {
+              width: 100%;
+              @include screen(pcSmall) {
+                width: 76%;
+                height: 60%;
+                margin: 12%;
+                padding-top: 16%;
+                border: 1px solid $white;
+              }
+              .ch {
+                @include screen(pcSmall) {
+                  display: block;
+                }
+              }
+            }
+            &:hover {
+              background-color: $pink_90;
+              .arrow {
+                @include animation(arrow_move $arrow_time linear infinite);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

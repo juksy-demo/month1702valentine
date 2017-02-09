@@ -1,0 +1,276 @@
+// Media Queries mixin
+@mixin screen($point) {
+    // default ipnone5
+    @if $point == mMedium { // iphone 6
+        @media screen and (min-width: $m_portrait_med_w) { @content; }
+    }
+    @else if $point == mLarge { // iphone 6 plus up
+        @media screen and (min-width: $m_portrait_max_w) { @content; }
+    }
+    @else if $point == tb { // tablet: ipad portrait
+        @media screen and (min-width: $tablet_portrait_min_w) { @content; }
+    }
+    @else if $point == pcSmall { // desktop: 1024px and ipad landscape
+        @media screen and (min-width: $pc_landscape_min_w) { @content; }
+    }
+    @else if $point == pcLarge { // only desktop: 1280px up
+        @media screen and (min-width: $pc_landscape_min_w_extra) { @content; }
+    }
+}
+
+// Keyframes mixin
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content; 
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    } 
+}
+
+// Transition mixin
+@mixin transition($property: all, $duration: 0.5s, $timing-function: ease, $delay: 0s) {
+    -webkit-transition: $property $duration $timing-function $delay;
+    -moz-transition:    $property $duration $timing-function $delay;
+    -o-transition:      $property $duration $timing-function $delay;
+    transition:         $property $duration $timing-function $delay;
+}
+
+// Transform mixin
+@mixin transform($value: initial) {
+    -webkit-transform: $value;
+    -ms-transform:     $value;
+    -moz-transform:    $value;
+    -o-transform:      $value;
+    transform:         $value;
+}
+
+// Transform Origin mixin
+@mixin transform-origin($value: initial) {
+    -webkit-transform-origin: $value;
+    -ms-transform-origin:     $value;
+    -moz-transform-origin:    $value;
+    -o-transform-origin:      $value;
+    transform-origin:         $value;
+}
+
+// Animation mixin
+@mixin animation($value) {
+    -webkit-animation: $value;
+    -moz-animation:    $value;
+    -o-animation:      $value;
+    animation:         $value;
+}
+
+// Appearance mixin
+@mixin appearance($value) {
+    -webkit-appearance: $value;
+    -moz-appearance:    $value;
+    appearance:         $value;
+}
+
+//-------------------- linear-gradient START
+/// Convert angle
+/// @author Chris Eppstein
+/// @param {Number} $value - Value to convert
+/// @param {String} $unit - Unit to convert to
+/// @return {Number} Converted angle
+@function convert-angle($value, $unit) {
+  $convertable-units: deg grad turn rad;
+  $conversion-factors: 1 (10grad/9deg) (1turn/360deg) (3.1415926rad/180deg);
+  @if index($convertable-units, unit($value)) and index($convertable-units, $unit) {
+    @return $value
+             / nth($conversion-factors, index($convertable-units, unit($value)))
+             * nth($conversion-factors, index($convertable-units, $unit));
+  }
+  
+  @warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";
+}
+
+/// Test if `$value` is an angle
+/// @param {*} $value - Value to test
+/// @return {Bool}
+@function is-direction($value) {
+  $is-direction: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+  
+  @return $is-direction or $is-angle;
+}
+
+/// Convert a direction to legacy syntax
+/// @param {Keyword | Angle} $value - Value to convert
+/// @require {function} is-direction
+/// @require {function} convert-angle
+@function legacy-direction($value) {
+  @if is-direction($value) == false {
+    @warn "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be an angle or a direction";
+  }
+  
+  $conversion-map: ( 
+    to top          : bottom,
+    to top right    : bottom left,
+    to right top    : left bottom,
+    to right        : left,
+    to bottom right : top left,
+    to right bottom : left top,
+    to bottom       : top,
+    to bottom left  : top right,
+    to left bottom  : right top,
+    to left         : right,
+    to left top     : right bottom,
+    to top left     : bottom right
+  );
+    
+  @if map-has-key($conversion-map, $value) {
+    @return map-get($conversion-map, $value);
+  }
+  
+  @return 90deg - convert-angle($value, 'deg');
+}
+
+/// Mixin printing a linear-gradient 
+/// as well as a plain color fallback 
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {String | List | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+@mixin linear-gradient($direction, $color-stops...) {
+  @if is-direction($direction) == false {
+    $color-stops: ($direction, $color-stops);
+    $direction: 180deg;
+  }
+  
+  background-image: nth(nth($color-stops, 1), 1);
+  background-image: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background-image: -o-linear-gradient(legacy-direction($direction), $color-stops);
+  background-image: -moz-linear-gradient(legacy-direction($direction), $color-stops);
+  background-image: linear-gradient($direction, $color-stops);
+}
+
+//-------------------- linear-gradient END
+
+//list style none
+@mixin list_style_none {
+    list-style: none;
+    display: block;
+}
+
+//a.img
+@mixin a_img {
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+//a.txt for layouts
+@mixin a_txt {
+    @include screen(pcLarge){
+        display: inline;
+        @include linear-gradient(to right, transparent 50%, $black 50%);
+        background-position: 0;
+        background-size: 201%;
+        @include transition(all, 0.4s);
+        &:hover {
+            background-size: 200%;
+            background-position: -100%;
+            color: $white;
+        }
+    }
+}
+
+//a.img square linkWrap for layouts
+@mixin square_linkWrap {
+    position: relative;
+    overflow: hidden;
+    .linkWrap {
+        width: 81%;
+        height: 80%;
+        padding: 10%;
+        background-color: $pink_90;
+        color: $white;
+        font-weight: bold;
+        opacity: 0;
+        @include transition;
+        .linkBorder {
+            height: 65%;
+            border: 1px solid $white;
+            padding-top: 35%;
+            text-align: center;
+            .ch {
+                display: block;
+            }
+        }
+    }
+    &:hover {
+        .linkWrap {
+            opacity: 1;
+        }
+        .arrow {
+            @include animation(arrow_move $arrow_time linear infinite);
+        }
+    }
+}
+
+//a.img fbsize linkWrap for layouts
+@mixin fbsize_linkWrap {
+    position: relative;
+    overflow: hidden;
+    .linkWrap {
+        width: 89%;
+        height: initial;
+        padding: 6%;
+        background-color: $pink_90;
+        color: $white;
+        font-weight: bold;
+        opacity: 0;
+        @include transition;
+        .linkBorder {
+            height: initial;
+            border: 1px solid $white;
+            padding-top: 13%;
+            padding-bottom: 14%;
+            text-align: center;
+            @include screen(mLarge) {
+                padding-top: 13%;
+                padding-bottom: 15.5%;
+            }
+            @include screen(tb) {
+                padding-top: 17%;
+                padding-bottom: 16%;
+            }
+            @include screen(pcSmall) {
+                padding-top: 15%;
+                padding-bottom: 15.5%;
+            }
+            .ch {
+                display: block;
+            }
+        }
+    }
+    &:hover {
+        .linkWrap {
+            opacity: 1;
+        }
+        .arrow {
+            @include animation(arrow_move $arrow_time linear infinite);
+        }
+    }
+}
+
+//category for layouts
+@mixin category {
+    border-bottom: 1px solid $black;
+    padding: 3px 5px;
+    display: none;
+    @include screen(pcSmall) {
+        display: inline-block;
+        margin-bottom: 1em;
+    }
+}

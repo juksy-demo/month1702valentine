@@ -1,0 +1,125 @@
+.article_01 {
+    background-color: darken($grey,50%);
+    padding: 50px 0;
+    .articleWrap {
+        position: relative;
+        overflow: hidden;
+        @include screen(pcSmall) {
+            width: 800px;
+            margin: 0 auto;
+        }
+        img.logo {
+            display: block;
+            margin: 0 auto 50px auto;
+        }
+        .txtWrap {
+            color: $white;
+            padding: 0 $m_gap;
+            position: relative;
+            float: left;
+            @include screen(tb) {
+                padding: 0 $tb_gap;
+            }
+            @include screen(pcSmall) {
+                border: 1px solid $white;
+                margin-bottom: 30px;
+                padding: 40px 60px;
+            }
+            .title {
+                font-size: 30px;
+                text-align: center;
+                margin-bottom: 20px;
+                @include screen(pcSmall) {
+                    text-align: left;
+                }
+            }
+            .txt {
+                ul.list {
+                    padding: 20px 0;
+                    li {
+                        @include list_style_none;
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        span {
+                            display: block;
+                            float: left;
+                            &.item {
+                                width: 100px;
+                                @include screen(tb) {
+                                    width: 140px;
+                                }
+                                @include screen(pcSmall) {
+                                    width: 120px;
+                                }
+                            }
+                            &.itemTxt {
+                                width: calc(100% - 100px);
+                                @include screen(tb) {
+                                    width: calc(100% - 140px);
+                                }
+                                @include screen(pcSmall) {
+                                    width: calc(100% - 120px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .btnWrap {
+                @include screen(pcSmall) {
+                    position: absolute;
+                    z-index: 1;
+                    margin: 10px 0 0 201px;
+                }
+                a.btn {
+                    display: block;
+                    width: 238px;
+                    margin: 0 auto;
+                    line-height: 60px;
+                    background-color: $pink;
+                    padding: 0 20px;
+                    overflow: hidden;
+                    position: relative;
+                    @include screen(tb) {
+                        width: 278px;
+                    }
+                    @include screen(pcSmall) {
+                        width: 238px;
+                        box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .24), 0 3px 10px 0 rgba(0, 0, 0, .48);
+                        @include transition;
+                        &:hover {
+                        	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 3px 15px 0 rgba(0, 0, 0, .24);
+                        	@include transform(translate(-10px,-10px));
+                        }
+                    }
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 5px;
+                        right: 5px;
+                        top: 5px;
+                        bottom: 5px;
+                        border: 1px solid $white;
+                    }
+                    .icon {
+                        position: absolute;
+                        bottom: 0;
+                        width: 120px;
+                        height: 48px;
+                        svg {
+                            .st0 {
+                                fill: $white;
+                            }
+                        }
+                    }
+                    .icontext {
+                        float: right;
+                        font-style: italic;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

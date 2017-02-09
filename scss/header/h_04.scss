@@ -1,0 +1,175 @@
+.header_04 {
+    display: block;
+    .headerWrap {
+        position: relative;
+        height: auto; //js visual + detail - triangle(30)
+        .visualBg {
+            position: relative;
+            width: 100%;
+            min-height: 511px;
+            height: 90vh;
+            background-image: $url_header_04_visual_m;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            @include screen(tb) {
+                background-image: $url_header_04_visual_tb;
+            }
+            @include screen(pcSmall) {
+                background-image: $url_header_04_visual_pc;
+            }
+            @include screen(pcLarge) {
+                background-attachment: fixed;
+            }
+            .iconWrap {
+                position: absolute;
+                width: 100%;
+                bottom: 10px;
+                .scrollIcon {
+                    width: 20px;
+                    height: 35px;
+                    margin: 0 auto;
+                    border: 2px solid $white;
+                    border-radius: 15px;
+                    .circle {
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 2.5px;
+                        margin: 3px auto 0 auto;
+                        background-color: $white;
+                        @include animation(scroll_circle $scr_circle_time linear infinite);
+                    }
+                    .arrow {
+                        width: 10px;
+                        height: 3px;
+                        margin: 0 auto;
+                        opacity: 0;
+                        @include animation(scroll_arrow $scr_circle_time linear infinite);
+                        svg {
+                            .st0 {
+                                fill: none;
+                                stroke: $white;
+                                stroke-width: 15;
+                                stroke-miterlimit: 10;
+                            }
+                        }
+                    }
+                }
+            }
+            .source {
+                color: #fff;
+                font-size: 10px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                line-height: normal;
+                text-align: right;
+                position: absolute;
+                bottom: 40px;
+                right: 10px;
+            }
+        }
+        .detail {
+            width: 100%;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            .detailWrap {
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+                .txtBg {
+                    position: absolute;
+                    left: 0;
+                    bottom: -60px;
+                    width: 100%;
+                    height: 100%; //js for txtWrap.height
+                    padding-bottom: 30px;
+                    background-color: $grey;
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 100%;
+                        width: 50%;
+                        padding-bottom: inherit;
+                        background-color: inherit;
+                    }
+                    &:before {
+                        right: 50%;
+                        @include transform(skewX(50deg));
+                        @include transform-origin(100% 100%);
+                    }
+                    &:after {
+                        left: 50%;
+                        @include transform(skewX(-50deg));
+                        @include transform-origin(0 100%);
+                    }
+                }
+                .txtInner {
+                    max-width: $pc_max_width;
+                    margin: 0 auto;
+                    overflow: hidden;
+                    position: relative;
+                    .txtWrap {
+                        padding-left: 40px;
+                        padding-right: 40px;
+                        color: $white;
+                        @include screen(tb) {
+                            padding-left: $tb_gap;
+                            padding-right: $tb_gap;
+                        }
+                        @include screen(pcSmall) {
+                            float: left;
+                            padding: 0;
+                        }
+                        .txtWidth {
+                            width: 100%;
+                            overflow: hidden;
+                            position: relative;
+                            @include screen(pcSmall) {
+                                width: auto;
+                            }
+                            .quote {
+                                width: 27px;
+                                height: 24px;
+                                margin: 0 auto;
+                                display: none;
+                                svg {
+                                    .st0 {
+                                        fill: $white;
+                                    }
+                                }
+                                @include screen(pcSmall) {
+                                    display: block;
+                                    position: absolute;
+                                    &.left {
+                                        left: 40px;
+                                        top: 35px;
+                                    }
+                                    &.right {
+                                        right: 40px;
+                                        bottom: 35px;
+                                        @include transform(rotate(180deg));
+                                        @include transform-origin(50% 50%);
+                                    }
+                                }
+                            }
+                            .txt {
+                                max-height: $line-height*8;
+                                overflow: hidden;
+                                margin: $line-height 0;
+                                padding: 25px 0 0px 0;
+                                @include screen(pcSmall) {
+                                    width: 67.5%;
+                                    height: $line-height*3;
+                                    margin: 0 auto;
+                                    padding: 50px 0 35px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

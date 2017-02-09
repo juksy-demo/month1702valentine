@@ -1,0 +1,35 @@
+{
+  "name": "juksy-events",
+  "version": "1.0.0",
+  "description": "https://juksy-demo.github.io/events/",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juksy-demo/events.git"
+  },
+  "author": "Anny <anny@juksy.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juksy-demo/events/issues"
+  },
+  "homepage": "https://github.com/juksy-demo/events#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglifycss": "^1.0.6"
+  },
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "clipboard": "^1.5.16",
+    "handlebars": "^4.0.6",
+    "jquery": "^3.1.1",
+    "jquery.dotdotdot": "^1.7.4",
+    "lightslider": "^1.1.6",
+    "lodash": "^4.17.4",
+    "photoswipe": "^4.1.1",
+    "wowjs": "^1.1.3"
+  }
+}
